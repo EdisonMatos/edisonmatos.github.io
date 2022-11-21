@@ -9,8 +9,7 @@ html, body {
 }
 
 body {
-  /* background-color: brown; */
-  background-image: url(../imgs/bg.jpg);
+  background-color: brown;
   background-position: center;
   background-size: cover;
   color: aliceblue;

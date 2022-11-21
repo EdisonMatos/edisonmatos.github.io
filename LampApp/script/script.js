@@ -37,6 +37,10 @@ function turnLampOff() {
 function breakLamp() {
   if (lampStatus === "broken") {
     alert("A lâmpada já está quebrada.")
+    let option = confirm("Deseja consertar a lâmpada?")
+    if (option) {
+    document.location.reload(true)
+    }
   } 
   const lampBroken = document.getElementById('lamp')
   lampBroken.src = './imgs/lampBroken.png'

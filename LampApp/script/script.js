@@ -19,7 +19,7 @@ function turnLampOn() {
   
 function turnLampOff() {
   if (lampStatus === "off") {
-    alert("The lamp is already off.")
+    alert("A lâmpada já está desligada.")
   }
   if (lampStatus === "broken") {
     alert("A lâmpada está quebrada, não pode mais ser manuseiada.")

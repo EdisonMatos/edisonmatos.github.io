@@ -1,42 +1,21 @@
-const input = document.getElementById("input");
-const convertBtn = document.getElementById("convertBtn");
-let showResult = "";
-convertBtn.addEventListener("click", converter);
-const resultDiv = document.getElementById("resultDiv");
+const input = document.getElementById("input")
+const convertButton = document.getElementById("convertBtn")
+const resultInput = document.getElementById("resultInput")
+const option1 = document.getElementById("option11")
+const option2 = document.getElementById("option2")
 
-function converter() {
-  let typedValue = document.getElementById("input").value;
+convertButton.addEventListener('click', convert)
 
-  if (typedValue === "") {
-    alert("Digite o valor para converter");
-  } else {
-    let operation = typedValue * 100;
-    showResult = document.createElement("p");
-    showResult.innerText = operation;
-
-    resultDiv.appendChild(showResult);
-    document.getElementById("input").value = "";
-    convertBtn.removeEventListener("click", converter);
-    convertBtn.addEventListener("click", segundoPasso);
-  }
+function convert () {
+    if (input.value === "") {
+        alert("Preencha um número para converter.")
+        resultInput.value = ""
+    } else {
+        if (option1) {
+        alert("vrau")
+    }
+    const operation = input.value * 100
+    resultInput.value = operation
+    input.value = ""
+    }
 }
-
-function segundoPasso() {
-  console.log(showResult.innerText);
-  resultDiv.removeChild(showResult);
-
-  let typedValue = document.getElementById("input").value;
-
-  if (typedValue === "") {
-    alert("Digite o valor para converter");
-  } else {
-    let operation = typedValue * 100;
-    showResult = document.createElement("p");
-    showResult.innerText = operation;
-
-    resultDiv.appendChild(showResult);
-    document.getElementById("input").value = "";
-  }
-}
-
-// teste2

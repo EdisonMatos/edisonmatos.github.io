@@ -1,0 +1,28 @@
+#buttonEqual {
+    color: white;
+    width: 115px;
+}
+
+.buttons {
+    background-color: rgb(138, 148, 145);
+    color: white;
+    width: 50px;
+    height: 30px;
+    border-radius: 5px;
+    margin: 5px;
+    border: 0px;
+}
+
+input {
+    background-color:rgb(221, 221, 221);
+    border: 0;
+    border-radius: 5px;
+    height: 30px;
+    width: 245px;
+    font-size: 15px;
+}
+
+h1 {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color:rgb(138, 148, 145)
+}

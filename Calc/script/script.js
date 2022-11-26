@@ -9,6 +9,7 @@ const buttonSlash = document.getElementById("buttonSlash")
 const buttonMinus = document.getElementById("buttonMinus")
 const buttonX = document.getElementById("buttonX")
 
+const button0 = document.getElementById("button0")
 const button1 = document.getElementById("button1")
 const button2 = document.getElementById("button2")
 const button3 = document.getElementById("button3")
@@ -27,7 +28,7 @@ buttonClear.addEventListener('click', clearInputs)
 
 const buttonsList = []
 buttonsList.push(
-  button1, button2, button3, button4, button5, button6, button7, button8, button9, 
+  button0, button1, button2, button3, button4, button5, button6, button7, button8, button9, 
   buttonSum, buttonSlash, buttonMinus, buttonX,
   )
 

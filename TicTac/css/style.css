@@ -1,0 +1,15 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.squares {
+    background-color: rgb(62, 115, 206);
+    color: white;
+    border-radius: 10px;
+    font-size: 40px;
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+}

@@ -64,7 +64,7 @@ p {
 
 }
 
-#recomecar {
+#resetScore {
     background-color: rgb(108, 108, 108);
     color: white;
     margin: 10px;
@@ -77,7 +77,7 @@ p {
     font-weight: bold;
 }
 
-#resetScore {
+#recomecar {
     background-color: rgb(205, 104, 16);
     color: white;
     margin: 10px;

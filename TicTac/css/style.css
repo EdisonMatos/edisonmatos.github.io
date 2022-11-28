@@ -14,6 +14,9 @@ body {
 header {
     margin: 20px;
     color: rgb(108, 108, 108);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 h1 {
@@ -59,11 +62,11 @@ p {
 
 }
 
-#recomecar {
+.buttons {
     background-color: rgb(108, 108, 108);
     color: white;
     margin: 10px;
-    width: 200px;
+    width: 160px;
     height: 50px;
     border-radius: 10px;
     border: 0px;

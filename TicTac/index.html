@@ -6,21 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tic Tac Toe</title>
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
     <script src="./script/script.js" defer></script>
 </head>
 <body>
+    <header>
+        <h1>Jogo da Velha</h1>
+        <h4>By Edison Matos</h4><br>
+        <p id="playerTurnLine"></p><br>
+    </header>
     <section id="canvas">
-        <label for="playerTurn">Jogador da vez: </label>
-        <p id="playerTurnLine"></p>
-        <button id="square1" class="squares">-</button>
-        <button id="square2" class="squares">-</button>
-        <button id="square3" class="squares">-</button><br>
-        <button id="square4" class="squares">-</button>
-        <button id="square5" class="squares">-</button>
-        <button id="square6" class="squares">-</button><br>
-        <button id="square7" class="squares">-</button>
-        <button id="square8" class="squares">-</button>
-        <button id="square9" class="squares">-</button><br>
+        <button id="square1" class="squaresBlank">-</button>
+        <button id="square2" class="squaresBlank">-</button>
+        <button id="square3" class="squaresBlank">-</button><br>
+        <button id="square4" class="squaresBlank">-</button>
+        <button id="square5" class="squaresBlank">-</button>
+        <button id="square6" class="squaresBlank">-</button><br>
+        <button id="square7" class="squaresBlank">-</button>
+        <button id="square8" class="squaresBlank">-</button>
+        <button id="square9" class="squaresBlank">-</button><br><br>
         <button id="recomecar">Recomeçar</button>
     </section>
 </body>

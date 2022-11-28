@@ -1,7 +1,7 @@
 // Capturar o nome dos jogadores
 
-const player1 = "Jogador 1"
-const player2 = "Jogador 2"
+const player1 = "Vez do jogador X"
+const player2 = "Vez do jogador O"
 
 // Criar turno e alternar o que mostra na tela o da vez
 
@@ -30,49 +30,83 @@ square8.addEventListener('click', clickOnSquare)
 square9.addEventListener('click', clickOnSquare)
 
 function checkVictory () {
-    if (square1.innerText === "X" && square2.innerText === "X" && square3.innerText === "X") {
-        alert("Ganhou")
+    if (square1.innerText === "X" && square2.innerText === "X" && square3.innerText === "X"
+    || square1.innerText === "O" && square2.innerText === "O" && square3.innerText === "O") {
+        square1.classList.replace('squares', 'squaresVictory');
+        square2.classList.replace('squares', 'squaresVictory');
+        square3.classList.replace('squares', 'squaresVictory');
+    } 
+    else if (square4.innerText === "X" && square5.innerText === "X" && square6.innerText === "X"
+    || square4.innerText === "O" && square5.innerText === "O" && square6.innerText === "O") {
+        square4.classList.replace('squares', 'squaresVictory');
+        square5.classList.replace('squares', 'squaresVictory');
+        square6.classList.replace('squares', 'squaresVictory');
     }
-    if (square4.innerText === "X" && square5.innerText === "X" && square6.innerText === "X") {
-        alert("Ganhou")
+    else if (square7.innerText === "X" && square8.innerText === "X" && square9.innerText === "X"
+    || square7.innerText === "O" && square8.innerText === "O" && square9.innerText === "O") {
+        square7.classList.replace('squares', 'squaresVictory');
+        square8.classList.replace('squares', 'squaresVictory');
+        square9.classList.replace('squares', 'squaresVictory');
     }
-    if (square7.innerText === "X" && square8.innerText === "X" && square9.innerText === "X") {
-        alert("Ganhou")
+    else if (square1.innerText === "X" && square5.innerText === "X" && square9.innerText === "X"
+    || square1.innerText === "O" && square5.innerText === "O" && square9.innerText === "O") {
+        square1.classList.replace('squares', 'squaresVictory');
+        square5.classList.replace('squares', 'squaresVictory');
+        square9.classList.replace('squares', 'squaresVictory');
     }
-    if (square1.innerText === "X" && square5.innerText === "X" && square9.innerText === "X") {
-        alert("Ganhou")
+    else if (square3.innerText === "X" && square5.innerText === "X" && square7.innerText === "X"
+    || square3.innerText === "O" && square5.innerText === "O" && square7.innerText === "O") {
+        square3.classList.replace('squares', 'squaresVictory');
+        square5.classList.replace('squares', 'squaresVictory');
+        square7.classList.replace('squares', 'squaresVictory');
     }
-    if (square3.innerText === "X" && square5.innerText === "X" && square7.innerText === "X") {
-        alert("Ganhou")
+    else if (square1.innerText === "X" && square4.innerText === "X" && square7.innerText === "X"
+    || square1.innerText === "O" && square4.innerText === "O" && square7.innerText === "O") {
+        square1.classList.replace('squares', 'squaresVictory');
+        square4.classList.replace('squares', 'squaresVictory');
+        square7.classList.replace('squares', 'squaresVictory');
+    }
+    else if (square2.innerText === "X" && square5.innerText === "X" && square8.innerText === "X"
+    || square2.innerText === "O" && square5.innerText === "O" && square8.innerText === "O") {
+        square2.classList.replace('squares', 'squaresVictory');
+        square5.classList.replace('squares', 'squaresVictory');
+        square8.classList.replace('squares', 'squaresVictory');
+    }
+    else if (square3.innerText === "X" && square6.innerText === "X" && square9.innerText === "X"
+    || square3.innerText === "O" && square6.innerText === "O" && square9.innerText === "O") {
+        square3.classList.replace('squares', 'squaresVictory');
+        square6.classList.replace('squares', 'squaresVictory');
+        square9.classList.replace('squares', 'squaresVictory');
     }
 }
 
 function clickOnSquare () {
 if (this.innerText === "-") {
     if (turn === player1) {
-        this.innerText = 'X'
+        this.innerText = "X"
+        this.classList.replace('squaresBlank', 'squares')
         turn = player2
         playerTurnLine.innerText = turn
         checkVictory()
 
 
     } else if (turn === player2) {
-        this.innerText = 'O'
+        this.innerText = "O"
+        this.classList.replace('squaresBlank', 'squares')
         turn = player1
         playerTurnLine.innerText = turn
+        checkVictory()
     }
 } else {
     alert("Já marcou")
 }
 }
 
-// Botao recomecar
-
 const botaoRecomecar = document.getElementById('recomecar')
 botaoRecomecar.addEventListener('click', limparCampos)
 
 function limparCampos () {
-    square1.innerText = "-"
+    square1.innerText = "-"      
     square2.innerText = "-"
     square3.innerText = "-"
     square4.innerText = "-"
@@ -81,4 +115,26 @@ function limparCampos () {
     square7.innerText = "-"
     square8.innerText = "-"
     square9.innerText = "-"
+
+    square1.classList.replace('squares', 'squaresBlank');
+    square2.classList.replace('squares', 'squaresBlank');
+    square3.classList.replace('squares', 'squaresBlank');
+    square4.classList.replace('squares', 'squaresBlank');
+    square5.classList.replace('squares', 'squaresBlank');
+    square6.classList.replace('squares', 'squaresBlank');
+    square7.classList.replace('squares', 'squaresBlank');
+    square8.classList.replace('squares', 'squaresBlank');
+    square9.classList.replace('squares', 'squaresBlank');  
+
+    square1.classList.replace('squaresVictory', 'squaresBlank');
+    square2.classList.replace('squaresVictory', 'squaresBlank');
+    square3.classList.replace('squaresVictory', 'squaresBlank');
+    square4.classList.replace('squaresVictory', 'squaresBlank');
+    square5.classList.replace('squaresVictory', 'squaresBlank');
+    square6.classList.replace('squaresVictory', 'squaresBlank');
+    square7.classList.replace('squaresVictory', 'squaresBlank');
+    square8.classList.replace('squaresVictory', 'squaresBlank');
+    square9.classList.replace('squaresVictory', 'squaresBlank');
+
+
 }

@@ -2,6 +2,38 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Fredoka One', cursive;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    margin: 20px;
+    color: rgb(108, 108, 108);
+}
+
+h1 {
+    font-size: 50px;
+}
+
+p {
+    font-size: 30px;
+    color: rgb(62, 115, 206);
+}
+
+.squaresBlank {
+    background-color: rgb(62, 115, 206);
+    color: rgb(62, 115, 206);
+    border-radius: 10px;
+    font-size: 40px;
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    border: 0px;
 }
 
 .squares {
@@ -12,4 +44,28 @@
     width: 100px;
     height: 100px;
     margin: 10px;
+    border: 0px;
+}
+
+.squaresVictory {
+    background-color: rgb(18, 134, 14);
+    color: white;
+    border-radius: 10px;
+    font-size: 40px;
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    border: 0px;    
+
+}
+
+#recomecar {
+    background-color: rgb(108, 108, 108);
+    color: white;
+    margin: 10px;
+    width: 200px;
+    height: 50px;
+    border-radius: 10px;
+    border: 0px;
+    font-size: 17px;
 }

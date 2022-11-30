@@ -121,6 +121,7 @@ function resetGame () {
         pointsX.innerText = "Pontos jogador X: " + scorePlayerX
         scorePlayerO = 0
         pointsO.innerText = "Pontos jogador O: " + scorePlayerO
+        draw = false
         drawCount = 0
         draws.innerText = "Empates: " + drawCount
         newTurn()

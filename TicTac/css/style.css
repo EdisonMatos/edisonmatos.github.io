@@ -18,7 +18,7 @@ body {
 }
 
 header {
-    margin: 10px;
+    margin: 20px;
     color: rgb(108, 108, 108);
     display: flex;
     flex-direction: column;
@@ -31,7 +31,7 @@ h1 {
 }
 
 p {
-    font-size: 25px;
+    font-size: 20px;
     color: #272635;
 }
 

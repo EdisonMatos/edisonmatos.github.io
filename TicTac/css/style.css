@@ -3,7 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Fredoka One', cursive;
-    background-color: rgb(230, 245, 246);
+    background-color: #E8E9F3;
 }
 
 body {
@@ -12,8 +12,13 @@ body {
     align-items: center;
 }
 
+#main {
+    background-color: white;
+    width: 100%;
+}
+
 header {
-    margin: 20px;
+    margin: 10px;
     color: rgb(108, 108, 108);
     display: flex;
     flex-direction: column;
@@ -22,27 +27,40 @@ header {
 
 h1 {
     font-size: 50px;
-    color: rgb(205, 104, 16);
+    color: #78b2c1;
 }
 
 p {
-    font-size: 30px;
-    color: rgb(62, 115, 206);
+    font-size: 25px;
+    color: #272635;
 }
 
 .squaresBlank {
-    background-color: rgb(62, 115, 206);
-    color: rgb(62, 115, 206);
+    background-color: rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
     border-radius: 10px;
     font-size: 40px;
     width: 100px;
     height: 100px;
     margin: 10px;
     border: 0px;
+    box-shadow: 2px 2px 5px rgb(204, 204, 204);
 }
 
 .squares {
-    background-color: rgb(62, 115, 206);
+    background-color: rgb(255, 255, 255);
+    color: #78b2c1;
+    border-radius: 10px;
+    font-size: 40px;
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    border: 0px;
+    box-shadow: 2px 2px 5px rgb(204, 204, 204);
+}
+
+.squaresVictory {
+    background-color: #78b2c1;
     color: white;
     border-radius: 10px;
     font-size: 40px;
@@ -50,42 +68,30 @@ p {
     height: 100px;
     margin: 10px;
     border: 0px;
-}
-
-.squaresVictory {
-    background-color: rgb(18, 134, 14);
-    color: white;
-    border-radius: 10px;
-    font-size: 40px;
-    width: 100px;
-    height: 100px;
-    margin: 10px;
-    border: 0px;    
+    box-shadow: 2px 2px 5px rgb(204, 204, 204);    
 
 }
 
 #resetScore {
-    background-color: rgb(108, 108, 108);
+    background-color: #78b2c1;
     color: white;
-    margin: 10px;
+    margin: 20px;
     width: 160px;
     height: 50px;
     border-radius: 10px;
     border: 0px;
     font-size: 17px;
-    font-family: Helvetica, sans-serif;
-    font-weight: bold;
+    box-shadow: 2px 2px 5px rgb(204, 204, 204);
 }
 
-#recomecar {
-    background-color: rgb(205, 104, 16);
+#restart {
+    background-color: #78b2c1;
     color: white;
-    margin: 10px;
+    margin: 20px;
     width: 160px;
     height: 50px;
     border-radius: 10px;
     border: 0px;
     font-size: 17px;
-    font-family: Helvetica, sans-serif;
-    font-weight: bold;
+    box-shadow: 2px 2px 5px rgb(204, 204, 204);
 }

@@ -30,6 +30,10 @@ h1 {
     color: #78b2c1;
 }
 
+h4 {
+    color: #4d4d4d;
+}
+
 p {
     font-size: 20px;
     color: #272635;
@@ -72,26 +76,53 @@ p {
 
 }
 
-#resetScore {
+#resetScore, #restart {
     background-color: #78b2c1;
     color: white;
-    margin: 20px;
-    width: 160px;
+    margin: 10px;
+    width: 130px;
     height: 50px;
     border-radius: 10px;
     border: 0px;
-    font-size: 17px;
+    font-size: 15px;
     box-shadow: 2px 2px 5px rgb(204, 204, 204);
 }
 
-#restart {
+#addGameButton, #joinLobby {
     background-color: #78b2c1;
     color: white;
-    margin: 20px;
-    width: 160px;
+    margin: 10px;
+    width: 250px;
+    height: 100px;
+    border-radius: 20px;
+    border: 0px;
+    font-size: 20px;
+    box-shadow: 2px 2px 5px rgb(204, 204, 204);
+}
+
+#inviteButton, #returnButton {
+    background-color: #23454d;
+    color: white;
+    margin: 10px;
+    width: 130px;
     height: 50px;
     border-radius: 10px;
     border: 0px;
-    font-size: 17px;
+    font-size: 15px;
     box-shadow: 2px 2px 5px rgb(204, 204, 204);
+}
+
+
+#addGameSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input {
+    background-color: white;
+    width: 230px;
+    height: 40px;
+    border-radius: 5px;
+    text-align: center;
 }

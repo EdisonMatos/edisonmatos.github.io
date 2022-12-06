@@ -1,5 +1,5 @@
-const playerX = "Vez do jogador X";
-const playerO = "Vez do jogador O";
+const playerX = "Vez do jogador: X";
+const playerO = "Vez do jogador: O";
 const pointsX = document.getElementById('pointsX');
 const pointsO = document.getElementById('pointsO');
 const canvas = document.getElementById('canvas')
@@ -13,12 +13,61 @@ const inputJoin = document.createElement('input')
 const addGameButton = document.getElementById('addGameButton')
 const addGameSection = document.getElementById('addGameSection')
 const joinLobby = document.getElementById('joinLobby')
-addGameButton.addEventListener('click', addNewGame)
+addGameButton.addEventListener('click', function () {
+    addNewGame()
+})
 joinLobby.addEventListener('click', join)
+inputJoin.addEventListener('keydown', function (e) {
+    if (e.code === 'Enter') {
+        addNewGame(inputJoin.value)
+    }
+})
 
-function addNewGame () {
+function join() {
+    inputJoin.type = 'text'
+    inputJoin.placeholder = 'Cole aqui o código da sala'
+    addGameSection.appendChild(inputJoin)
+}
+
+
+
+
+
+
+
+function addNewGame(receivedRoomId) {
+    let roomId = receivedRoomId ? receivedRoomId.toString() : Math.floor(Math.random() * 100000).toString()
+    addGameSection.children.item(3) ? addGameSection.removeChild(inputJoin) : null
+    const socket = io('http://localhost:3000/tic-tac-toe', { path: '/api/rooms' })
+    socket.on('connect', function () {
+        var id = Math.floor(Math.random() * 10)
+        console.log('Connected');
+        socket.emit('meeting', { roomId });
+
+        socket.emit('identity', id, response =>
+            console.log('Identity:', response),
+        );
+    });
+    socket.on('meeting', function (data) {
+        console.log('you have joined the meeting: ', data);
+    });
+    socket.on('leaveRoom', function (data) {
+        console.log('you have leaved the meeting: ', data);
+    });
+    socket.on('exception', function (data) {
+        console.log('event', data);
+    });
+    socket.on('disconnect', function () {
+        console.log('Disconnected');
+    });
     playerTurnLine.id = "playerTurnLine"
     playerLineSection.appendChild(playerTurnLine)
+    let scorePlayerX = 0;
+    let scorePlayerO = 0;
+    let drawCount = 0;
+    let turn = playerX;
+    let draw = true;
+    playerTurnLine.innerText = turn;
 
     const sq1 = document.createElement('button')
     const sq2 = document.createElement('button')
@@ -124,8 +173,27 @@ function addNewGame () {
     footerButtons.appendChild(returnButton)
 
     returnButton.addEventListener('click', returnToIndex)
+    function addScorePoint() {
+        if (turn !== playerX) {
+            scorePlayerX++;
+            pointsX.innerText = "Pontos jogador X: " + scorePlayerX;
+            gameOver();
+        } else {
+            scorePlayerO++;
+            pointsO.innerText = "Pontos jogador O: " + scorePlayerO;
+            gameOver();
+        }
+    }
 
-    function returnToIndex () {
+    function copyRoomId(text){
+        navigator.clipboard.writeText(text).then(() => {
+            alert('Numero da sala copiado para Area de Transferencia!');
+          }, (err) => {
+            alert('Nao foi possivel copiar numero da sala: ', err);
+          });
+    }
+    function returnToIndex() {
+        socket.emit('leaveRoom', { roomId });
         playerLineSection.removeChild(playerTurnLine)
         canvas.removeChild(sq1)
         canvas.removeChild(sq2)
@@ -151,15 +219,11 @@ function addNewGame () {
         addGameSection.appendChild(joinLobby)
     }
 
-    let scorePlayerX = 0;
-    let scorePlayerO = 0;
-    let drawCount = 0;
-    let turn = playerX;
-    let draw = true;
-    playerTurnLine.innerText = turn;
-
     footerButton1.addEventListener('click', newTurn);
     footerButton2.addEventListener('click', resetGame);
+    inviteButton.addEventListener('click', ()=>{
+        copyRoomId(roomId)
+    });
 
     const square1 = document.getElementById('square1');
     const square2 = document.getElementById('square2');
@@ -171,26 +235,71 @@ function addNewGame () {
     const square8 = document.getElementById('square8');
     const square9 = document.getElementById('square9');
 
-    function clickOnSquare () {
+    socket.on('show', function (data) {
+        renderInSquare(data.square)
+    });
+    socket.on('newTurn', function () {
+        newTurn(false)
+    });
+
+    socket.on('resetPoints', function () {
+        resetGame(false)
+    });
+
+    function clickOnSquare() {
+
         if (this.innerText === "-") {
             if (turn === playerX) {
+                socket.emit('click', { square: this.id, roomId });
                 this.innerText = "X";
                 this.classList.replace('squaresBlank', 'squares');
                 turn = playerO;
                 playerTurnLine.innerText = turn;
                 checkVictory();
-        
+                blockSquare();
+
             } else if (turn === playerO) {
+                socket.emit('click', { square: this.id, roomId });
                 this.innerText = "O";
                 this.classList.replace('squaresBlank', 'squares');
                 turn = playerX;
                 playerTurnLine.innerText = turn;
                 checkVictory()
+                blockSquare();
             }
         }
-        }
+    }
+    function renderInSquare(squareNumber) {
+        const square = document.getElementById(squareNumber);
+        if (turn === playerX) {
+            square.innerText = "X";
+            square.classList.replace('squaresBlank', 'squares');
+            turn = playerO;
+            playerTurnLine.innerText = turn;
+            checkVictory();
+            addEvents()
 
-    function addEvents () {
+        } else if (turn === playerO) {
+            square.innerText = "O";
+            square.classList.replace('squaresBlank', 'squares');
+            turn = playerX;
+            playerTurnLine.innerText = turn;
+            checkVictory()
+            addEvents()
+        }
+    }
+    function blockSquare() {
+        square1.removeEventListener('click', clickOnSquare);
+        square2.removeEventListener('click', clickOnSquare);
+        square3.removeEventListener('click', clickOnSquare);
+        square4.removeEventListener('click', clickOnSquare);
+        square5.removeEventListener('click', clickOnSquare);
+        square6.removeEventListener('click', clickOnSquare);
+        square7.removeEventListener('click', clickOnSquare);
+        square8.removeEventListener('click', clickOnSquare);
+        square9.removeEventListener('click', clickOnSquare);
+    }
+    function addEvents() {
         square1.addEventListener('click', clickOnSquare);
         square2.addEventListener('click', clickOnSquare);
         square3.addEventListener('click', clickOnSquare);
@@ -201,23 +310,12 @@ function addNewGame () {
         square8.addEventListener('click', clickOnSquare);
         square9.addEventListener('click', clickOnSquare);
     }
-        
+
     addEvents()
 
-    function addScorePoint() {
-        if (turn !== playerX) {
-            scorePlayerX++;
-            pointsX.innerText = "Pontos jogador X: " + scorePlayerX;
-            gameOver();
-        } else {
-            scorePlayerO++;
-            pointsO.innerText = "Pontos jogador O: " + scorePlayerO;
-            gameOver();
-        }
-    }
 
-    function newTurn () {
-        square1.innerText = "-";      
+    function newTurn(isEmitter) {
+        square1.innerText = "-";
         square2.innerText = "-";
         square3.innerText = "-";
         square4.innerText = "-";
@@ -235,7 +333,7 @@ function addNewGame () {
         square6.classList.replace('squares', 'squaresBlank');
         square7.classList.replace('squares', 'squaresBlank');
         square8.classList.replace('squares', 'squaresBlank');
-        square9.classList.replace('squares', 'squaresBlank');  
+        square9.classList.replace('squares', 'squaresBlank');
 
         square1.classList.replace('squaresVictory', 'squaresBlank');
         square2.classList.replace('squaresVictory', 'squaresBlank');
@@ -255,10 +353,11 @@ function addNewGame () {
         } else {
             draw = true;
         }
+        isEmitter ? socket.emit('newTurn', { roomId }) : null
     }
 
-    function resetGame () {
-        let option = confirm("Esta opção irá zerar o placar de pontos. Confirma?");
+    function resetGame(isEmitter) {
+        let option = isEmitter ? confirm("Esta opção irá zerar o placar de pontos. Confirma?") : true;
         if (option) {
             scorePlayerX = 0;
             pointsX.innerText = "Pontos jogador X: " + scorePlayerX;
@@ -267,6 +366,7 @@ function addNewGame () {
             draw = false;
             drawCount = 0;
             drawParagraph.innerText = "Empates: " + drawCount;
+            isEmitter ? socket.emit('resetPoints', { roomId }) : null
             newTurn();
         } else {
             alert("Reset cancelado.");
@@ -285,18 +385,18 @@ function addNewGame () {
         square9.removeEventListener('click', clickOnSquare);
     }
 
-    function checkVictory () {
+    function checkVictory() {
         if (square1.innerText === "X" && square2.innerText === "X" && square3.innerText === "X"
-        || square1.innerText === "O" && square2.innerText === "O" && square3.innerText === "O") {
+            || square1.innerText === "O" && square2.innerText === "O" && square3.innerText === "O") {
             square1.classList.replace('squares', 'squaresVictory');
             square2.classList.replace('squares', 'squaresVictory');
             square3.classList.replace('squares', 'squaresVictory');
             addScorePoint();
             draw = false;
 
-        } 
+        }
         else if (square4.innerText === "X" && square5.innerText === "X" && square6.innerText === "X"
-        || square4.innerText === "O" && square5.innerText === "O" && square6.innerText === "O") {
+            || square4.innerText === "O" && square5.innerText === "O" && square6.innerText === "O") {
             square4.classList.replace('squares', 'squaresVictory');
             square5.classList.replace('squares', 'squaresVictory');
             square6.classList.replace('squares', 'squaresVictory');
@@ -305,7 +405,7 @@ function addNewGame () {
 
         }
         else if (square7.innerText === "X" && square8.innerText === "X" && square9.innerText === "X"
-        || square7.innerText === "O" && square8.innerText === "O" && square9.innerText === "O") {
+            || square7.innerText === "O" && square8.innerText === "O" && square9.innerText === "O") {
             square7.classList.replace('squares', 'squaresVictory');
             square8.classList.replace('squares', 'squaresVictory');
             square9.classList.replace('squares', 'squaresVictory');
@@ -314,7 +414,7 @@ function addNewGame () {
 
         }
         else if (square1.innerText === "X" && square5.innerText === "X" && square9.innerText === "X"
-        || square1.innerText === "O" && square5.innerText === "O" && square9.innerText === "O") {
+            || square1.innerText === "O" && square5.innerText === "O" && square9.innerText === "O") {
             square1.classList.replace('squares', 'squaresVictory');
             square5.classList.replace('squares', 'squaresVictory');
             square9.classList.replace('squares', 'squaresVictory');
@@ -323,7 +423,7 @@ function addNewGame () {
 
         }
         else if (square3.innerText === "X" && square5.innerText === "X" && square7.innerText === "X"
-        || square3.innerText === "O" && square5.innerText === "O" && square7.innerText === "O") {
+            || square3.innerText === "O" && square5.innerText === "O" && square7.innerText === "O") {
             square3.classList.replace('squares', 'squaresVictory');
             square5.classList.replace('squares', 'squaresVictory');
             square7.classList.replace('squares', 'squaresVictory');
@@ -332,7 +432,7 @@ function addNewGame () {
 
         }
         else if (square1.innerText === "X" && square4.innerText === "X" && square7.innerText === "X"
-        || square1.innerText === "O" && square4.innerText === "O" && square7.innerText === "O") {
+            || square1.innerText === "O" && square4.innerText === "O" && square7.innerText === "O") {
             square1.classList.replace('squares', 'squaresVictory');
             square4.classList.replace('squares', 'squaresVictory');
             square7.classList.replace('squares', 'squaresVictory');
@@ -341,7 +441,7 @@ function addNewGame () {
 
         }
         else if (square2.innerText === "X" && square5.innerText === "X" && square8.innerText === "X"
-        || square2.innerText === "O" && square5.innerText === "O" && square8.innerText === "O") {
+            || square2.innerText === "O" && square5.innerText === "O" && square8.innerText === "O") {
             square2.classList.replace('squares', 'squaresVictory');
             square5.classList.replace('squares', 'squaresVictory');
             square8.classList.replace('squares', 'squaresVictory');
@@ -350,7 +450,7 @@ function addNewGame () {
 
         }
         else if (square3.innerText === "X" && square6.innerText === "X" && square9.innerText === "X"
-        || square3.innerText === "O" && square6.innerText === "O" && square9.innerText === "O") {
+            || square3.innerText === "O" && square6.innerText === "O" && square9.innerText === "O") {
             square3.classList.replace('squares', 'squaresVictory');
             square6.classList.replace('squares', 'squaresVictory');
             square9.classList.replace('squares', 'squaresVictory');
@@ -359,15 +459,9 @@ function addNewGame () {
 
         }
     }
+    if (addGameSection.children.length > 1) {
+        addGameSection.removeChild(addGameButton)
+        addGameSection.removeChild(joinLobby)
+    }
 
-    addGameSection.removeChild(addGameButton)
-    addGameSection.removeChild(joinLobby)
-    addGameSection.removeChild(inputJoin)
-
-}
-
-function join () {
-    inputJoin.type = 'text'
-    inputJoin.placeholder = 'Cole aqui o código da sala'
-    addGameSection.appendChild(inputJoin)
 }

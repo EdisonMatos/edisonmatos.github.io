@@ -38,7 +38,7 @@ function join() {
 function addNewGame(receivedRoomId) {
     let roomId = receivedRoomId ? receivedRoomId.toString() : Math.floor(Math.random() * 100000).toString()
     addGameSection.children.item(3) ? addGameSection.removeChild(inputJoin) : null
-    const socket = io('http://localhost:3000/tic-tac-toe', { path: '/api/rooms' })
+    const socket = io('https://ffed-2804-14d-ed22-8037-7446-994f-52cb-7b89.sa.ngrok.io', { path: '/api/rooms', transports: ["websocket"] })
     socket.on('connect', function () {
         var id = Math.floor(Math.random() * 10)
         console.log('Connected');

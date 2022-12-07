@@ -38,11 +38,11 @@ function join() {
 function addNewGame(receivedRoomId) {
     let roomId = receivedRoomId ? receivedRoomId.toString() : Math.floor(Math.random() * 100000).toString()
     addGameSection.children.item(3) ? addGameSection.removeChild(inputJoin) : null
-    const socket = io('https://ffed-2804-14d-ed22-8037-7446-994f-52cb-7b89.sa.ngrok.io', { path: '/api/rooms', transports: ["websocket"] })
+    const socket = io('http://34.125.146.83', { path: '/api/rooms', transports: ["websocket"] })
     socket.on('connect', function () {
         var id = Math.floor(Math.random() * 10)
         console.log('Connected');
-        socket.emit('meeting', { roomId });
+        socket.emit('meeting', { roomId, newGame: receivedRoomId ? false : true });
 
         socket.emit('identity', id, response =>
             console.log('Identity:', response),
@@ -238,6 +238,9 @@ function addNewGame(receivedRoomId) {
     socket.on('show', function (data) {
         renderInSquare(data.square)
     });
+    socket.on('showCached', function (data) {
+        renderCachedSquares(data)
+    });
     socket.on('newTurn', function () {
         newTurn(false)
     });
@@ -250,7 +253,7 @@ function addNewGame(receivedRoomId) {
 
         if (this.innerText === "-") {
             if (turn === playerX) {
-                socket.emit('click', { square: this.id, roomId });
+                socket.emit('click', { square: this.id, roomId, value: "X" });
                 this.innerText = "X";
                 this.classList.replace('squaresBlank', 'squares');
                 turn = playerO;
@@ -259,7 +262,7 @@ function addNewGame(receivedRoomId) {
                 blockSquare();
 
             } else if (turn === playerO) {
-                socket.emit('click', { square: this.id, roomId });
+                socket.emit('click', { square: this.id, roomId, value: "O" });
                 this.innerText = "O";
                 this.classList.replace('squaresBlank', 'squares');
                 turn = playerX;
@@ -288,6 +291,14 @@ function addNewGame(receivedRoomId) {
             addEvents()
         }
     }
+
+    function renderCachedSquares(squaresData) {
+        squaresData.forEach((squareData) =>{
+            turn = squareData.value == 'X' ? playerX : playerO
+            renderInSquare(squareData.position)
+        })
+    }
+
     function blockSquare() {
         square1.removeEventListener('click', clickOnSquare);
         square2.removeEventListener('click', clickOnSquare);

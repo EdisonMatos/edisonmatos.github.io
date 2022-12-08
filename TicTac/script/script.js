@@ -9,7 +9,7 @@ const br1 = document.createElement('br')
 const br2 = document.createElement('br')
 const br3 = document.createElement('br')
 const inputJoin = document.createElement('input')
-
+inputJoin.type = "submit"
 const addGameButton = document.getElementById('addGameButton')
 const addGameSection = document.getElementById('addGameSection')
 const joinLobby = document.getElementById('joinLobby')

@@ -38,7 +38,7 @@ function join() {
 function addNewGame(receivedRoomId) {
     let roomId = receivedRoomId ? receivedRoomId.toString() : Math.floor(Math.random() * 100000).toString()
     addGameSection.children.item(3) ? addGameSection.removeChild(inputJoin) : null
-    const socket = io('http://34.125.146.83', { path: '/api/rooms', transports: ["websocket"] })
+    const socket = io('https://api-ttt.denjidev.com', { path: '/api/rooms', transports: ["websocket"] })
     socket.on('connect', function () {
         var id = Math.floor(Math.random() * 10)
         console.log('Connected');

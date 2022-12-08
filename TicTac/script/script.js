@@ -18,7 +18,7 @@ addGameButton.addEventListener('click', function () {
 })
 joinLobby.addEventListener('click', join)
 inputJoin.addEventListener('keydown', function (e) {
-    if (e.code === ('Enter' || '13') ){
+    if (e.code === ('Enter' || 13) ){
         addNewGame(inputJoin.value)
     }
 })

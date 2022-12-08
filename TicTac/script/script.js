@@ -366,9 +366,12 @@ function addNewGame(receivedRoomId) {
         if (draw) {
             drawCount++;
             drawParagraph.innerText = "Empates: " + drawCount;
+
         } else {
             draw = true;
         }
+        turn = playerX
+        playerTurnLine.innerText = turn;
         isEmitter ? socket.emit('newTurn', { roomId }) : null
     }
 
@@ -383,6 +386,8 @@ function addNewGame(receivedRoomId) {
             drawCount = 0;
             drawParagraph.innerText = "Empates: " + drawCount;
             isEmitter ? socket.emit('resetPoints', { roomId }) : null
+            turn = playerX
+            playerTurnLine.innerText = turn;
             newTurn();
         } else {
             alert("Reset cancelado.");

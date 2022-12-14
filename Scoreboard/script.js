@@ -6,14 +6,14 @@ addButton.addEventListener("click",addNewPlayer);
 
 function addNewPlayer() {
   if (playerNameInput.value === "") {
-    alert("Preencha o nome do jogador.");
+    alert("Preencha o nome.");
   } else {
     const newPlayer = { name: playerNameInput.value, score: 0 };
     console.log(newPlayer);
 
     const newPlayerParagraph = document.createElement("p");
     newPlayerParagraph.innerText =
-      newPlayer.name + ` - Pontos: ${newPlayer.score}.`;
+    newPlayer.name + ` : ${newPlayer.score}`;
     area.appendChild(newPlayerParagraph);
 
     const playerAddScoreBtn = document.createElement("button");
@@ -33,13 +33,13 @@ function addNewPlayer() {
     function increaseOnePoint() {
       newPlayer.score++;
       newPlayerParagraph.innerText =
-      newPlayer.name + ` - Pontos: ${newPlayer.score}.`;
+      newPlayer.name + ` : ${newPlayer.score}`;
     }
 
     function decreaseOnePoint() {
       newPlayer.score--;
       newPlayerParagraph.innerText =
-      newPlayer.name + ` - Pontos: ${newPlayer.score}.`;
+      newPlayer.name + ` : ${newPlayer.score}`;
     }
   }
 }

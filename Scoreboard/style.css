@@ -1,3 +1,38 @@
+* {
+}
+
 body {
     font-family:Helvetica, sans-serif;
+}
+
+h5 {
+    color: rgb(40, 91, 132);
+}
+
+button {
+    height: 67px;
+    width: 70px;
+    font-size: 20px;
+    color: white;
+    background-color: rgb(40, 91, 132);
+    border: 0px;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+
+input {
+    height: 55px;
+    font-size: 15px;
+    border-color: rgb(40, 91, 132);
+    border-radius: 5px;
+}
+
+label {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+p {
+    font-size: 20px;
+    font-weight: bold;
 }

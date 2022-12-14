@@ -16,6 +16,11 @@ body {
     background-color: rgb(166, 196, 222);
 }
 
+main {
+    display: flex;
+    flex-direction: column;
+}
+
 header {
     display: flex;
     flex-direction: column;
@@ -30,7 +35,7 @@ header {
     align-items: center;
     justify-content: center;
     background-color: white;
-    padding-bottom: 60px;
+    padding-bottom: 50px;
     border-radius: 10px;
     margin: 20px;
     box-shadow: 1px 1px 1px grey;
@@ -85,14 +90,13 @@ button {
     margin-right: 5px;
 }
 
-
-
 input {
     height: 40px;
     width: 130px;
-    font-size: 15px;
+    font-size: 25px;
     border-radius: 5px;
     border: 3px solid rgb(40, 91, 132);
+    padding: 10px;
 }
 
 label {

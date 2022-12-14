@@ -9,7 +9,6 @@ function addNewPlayer() {
     alert("Preencha o nome.");
   } else {
     const newPlayer = { name: playerNameInput.value, score: 0 };
-    console.log(newPlayer);
 
     const line = document.createElement("hr");
     line.id = line;

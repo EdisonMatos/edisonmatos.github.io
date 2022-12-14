@@ -240,15 +240,11 @@ function addNewGame(receivedRoomId) {
       });
     }
   
-    // NÃO APAGAR ===================================================================================
-
-    // function blockSquare() {
-    //   for (let i=0; i < squareList.length; i++) {
-    //     squareList[i].removeEventListener("click", clickOnSquare);
-    //   };
-    // }
-
-    // NÃO APAGAR ===================================================================================
+    function blockSquare() {
+      for (let i=0; i < squareList.length; i++) {
+        squareList[i].removeEventListener("click", clickOnSquare);
+      };
+    }
   
     function addEvents() {
       squareList.forEach((item) => item.addEventListener("click", clickOnSquare));

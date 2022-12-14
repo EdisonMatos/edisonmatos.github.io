@@ -1,0 +1,314 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Fredoka One', cursive;
+    background-color: #E8E9F3;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#main {
+    background-color: white;
+    width: 100%;
+}
+
+#gameAfterRender {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    margin: 20px;
+    color: rgb(108, 108, 108);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    margin-top: 20px;
+    font-size: 50px;
+    color: #78b2c1;
+}
+
+h4 {
+    font-family: Helvetica, sans-serif;
+    color: #4d4d4d;
+    margin: 10px;
+}
+
+p {
+    font-size: 20px;
+    color: #272635;
+    margin: 5px;
+}
+
+a, a:visited, a:active {
+    text-decoration: none;
+    color: #23454d;
+    font-family: Helvetica, sans-serif;
+}
+
+h4 {
+    font-family: Helvetica, sans-serif;
+    color: #4d4d4d;
+    margin: 10px;
+}
+
+.squaresBlank {
+    background-color: rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
+    border-radius: 10px;
+    font-size: 40px;
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    border: 0px;
+    box-shadow: 2px 2px 5px rgb(204, 204, 204);
+}
+
+.squares {
+    background-color: rgb(255, 255, 255);
+    color: #78b2c1;
+    border-radius: 10px;
+    font-size: 40px;
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    border: 0px;
+    box-shadow: 2px 2px 5px rgb(204, 204, 204);
+}
+
+.squaresVictory {
+    background-color: #78b2c1;
+    color: white;
+    border-radius: 10px;
+    font-size: 40px;
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    border: 0px;
+    box-shadow: 2px 2px 5px rgb(204, 204, 204);    
+
+}
+
+#resetScore {
+    background-color: #819499;
+    color: white;
+    margin: 10px;
+    width: 130px;
+    height: 50px;
+    border-radius: 10px;
+    border: 0px;
+    font-size: 15px;
+    box-shadow: 2px 2px 5px rgb(204, 204, 204);
+}
+
+#restart {
+    background-color: #78b2c1;
+    color: white;
+    margin: 10px;
+    width: 130px;
+    height: 50px;
+    border-radius: 10px;
+    border: 0px;
+    font-size: 15px;
+    box-shadow: 2px 2px 5px rgb(204, 204, 204);
+}
+
+#addGameButton {
+    background-color: #78b2c1;
+    color: white;
+    margin: 20px;
+    width: 210px;
+    height: 90px;
+    border-radius: 20px;
+    border: 0px;
+    font-size: 20px;
+    box-shadow: 2px 2px 5px rgb(204, 204, 204);
+}
+
+#joinLobbyButton {
+    background-color: #23454d;
+    color: white;
+    margin: 20px;
+    width: 210px;
+    height: 90px;
+    border-radius: 20px;
+    border: 0px;
+    font-size: 20px;
+    box-shadow: 2px 2px 5px rgb(204, 204, 204);
+}
+
+#enterRoomCodeButton {
+    background-color: #c77e17;
+    color: white;
+    margin: 20px;
+    width: 100px;
+    height: 60px;
+    border-radius: 20px;
+    border: 0px;
+    font-size: 18px;
+    box-shadow: 2px 2px 5px rgb(204, 204, 204);
+}
+
+#inviteButton, #returnButton {
+    background-color: #23454d;
+    color: white;
+    margin: 10px;
+    width: 130px;
+    height: 50px;
+    border-radius: 10px;
+    border: 0px;
+    font-size: 15px;
+    box-shadow: 2px 2px 5px rgb(204, 204, 204);
+}
+
+
+#addGameSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input {
+    background-color: white;
+    width: 210px;
+    height: 70px;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 18px;
+}
+
+#score {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#canvas {
+    margin: 15px;
+}
+
+#mainContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1 0 auto;
+}
+
+footer {
+    margin-top: 20px;
+    flex-shrink: 0;
+}
+
+@media (max-width: 425px) {
+
+    h4 {
+        font-size: 13px;
+    }
+
+    h1 {
+        font-size: 40px;
+    }
+
+    .squaresBlank {
+        font-size: 30px;
+        width: 70px;
+        height: 70px;
+        margin: 10px;
+    }
+
+    .squares {
+        font-size: 30px;
+        width: 70px;
+        height: 70px;
+        margin: 10px;
+    }
+    
+    .squaresVictory {
+        font-size: 30px;
+        width: 70px;
+        height: 70px;
+        margin: 10px;
+    }
+
+}
+
+@media (max-width: 376px) {
+
+    h4 {
+        font-size: 13px;
+    }
+
+    h1 {
+        font-size: 40px;
+    }
+
+    .squaresBlank {
+        font-size: 30px;
+        width: 80px;
+        height: 80px;
+        margin: 10px;
+    }
+
+    .squares {
+        font-size: 30px;
+        width: 80px;
+        height: 80px;
+        margin: 10px;
+    }
+    
+    .squaresVictory {
+        font-size: 30px;
+        width: 80px;
+        height: 80px;
+        margin: 10px;
+    }
+
+}
+
+@media (max-width: 320px) {
+
+    h4 {
+        font-size: 12px;
+    }
+
+    h1 {
+        font-size: 40px;
+    }
+
+    .squaresBlank {
+        font-size: 25px;
+        width: 70px;
+        height: 70px;
+        margin: 10px;
+    }
+
+    .squares {
+        font-size: 25px;
+        width: 70px;
+        height: 70px;
+        margin: 10px;
+    }
+    
+    .squaresVictory {
+        font-size: 25px;
+        width: 70px;
+        height: 70px;
+        margin: 10px;
+    }
+
+}

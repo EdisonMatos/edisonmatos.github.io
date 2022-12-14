@@ -81,6 +81,12 @@ button {
     margin-right: 5px;
 }
 
+hr {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-color: rgb(40, 91, 132);
+}
+
 #playerRemoveScoreBtn {
     height: 67px;
     width: 70px;

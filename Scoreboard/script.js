@@ -11,6 +11,10 @@ function addNewPlayer() {
     const newPlayer = { name: playerNameInput.value, score: 0 };
     console.log(newPlayer);
 
+    const line = document.createElement("hr");
+    line.id = line;
+    area.appendChild(line)
+
     const newPlayerParagraph = document.createElement("p");
     newPlayerParagraph.innerText =
     newPlayer.name + ` : ${newPlayer.score}`;

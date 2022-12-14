@@ -18,9 +18,11 @@ function addNewPlayer() {
 
     const playerAddScoreBtn = document.createElement("button");
     playerAddScoreBtn.innerText = "+";
+    playerAddScoreBtn.id = "playerAddScoreBtn";
 
     const playerRemoveScoreBtn = document.createElement("button");
     playerRemoveScoreBtn.innerText = "-";
+    playerRemoveScoreBtn.id = "playerRemoveScoreBtn";
 
     area.appendChild(playerAddScoreBtn);
     area.appendChild(playerRemoveScoreBtn);

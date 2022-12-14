@@ -1,0 +1,78 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100% 
+}
+
+body {
+  background-color: brown;
+  background-position: center;
+  background-size: cover;
+  color: aliceblue;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  font-family: 'Fredoka One', cursive;
+
+
+}
+
+header {
+  margin-top: 50px;
+  font-size: 30px;
+  text-shadow: 2px 2px 3px black;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+}
+
+footer {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+a {
+  color:rgb(238, 226, 158);;
+  text-decoration: none;
+  text-shadow: 1px 1px 3px black;
+}
+
+p {
+  font-size: 15px;
+}
+
+button {
+  margin: 10px;
+  border: 0px;
+  box-shadow: 1px 1px 3px;
+  color: black;
+}
+
+
+#turnLampOn {
+  height: 50px;
+  border-radius: 10px;
+  background-color: rgb(238, 226, 158);
+  font-family: 'Fredoka One', cursive;
+}
+
+#turnLampOff {
+  height: 50px;
+  border-radius: 10px;
+  background-color: rgb(255, 255, 255);
+  font-family: 'Fredoka One', cursive;
+}
+
+#breakLamp {
+  height: 50px;
+  border-radius: 10px;
+  background-color: rgb(169, 169, 169);
+  font-family: 'Fredoka One', cursive;
+}

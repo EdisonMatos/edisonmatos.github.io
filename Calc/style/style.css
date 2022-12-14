@@ -1,0 +1,39 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#buttonEqual, #buttonClear {
+    color: white;
+    background-color: rgb(222, 149, 13);
+}
+
+.buttons {
+    background-color: rgb(138, 148, 145);
+    color: white;
+    width: 50px;
+    height: 30px;
+    border-radius: 5px;
+    margin: 5px;
+    border: 0px;
+}
+
+input {
+    background-color:rgb(221, 221, 221);
+    border: 0;
+    border-radius: 5px;
+    height: 50px;
+    width: 245px;
+    font-size: 15px;
+}
+
+h1 {
+    color:rgb(138, 148, 145)
+}
+
+p {
+    font-size: 12px;
+}

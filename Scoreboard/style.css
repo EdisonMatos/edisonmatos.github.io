@@ -67,6 +67,7 @@ button {
     border: 0px;
     border-radius: 5px;
     margin-right: 5px;
+    margin-left: 5px;
 }
 
 #playerAddScoreBtn {
@@ -98,6 +99,7 @@ input {
     border-radius: 5px;
     border: 3px solid rgb(40, 91, 132);
     padding: 10px;
+    margin-left: 5px;
 }
 
 label {
@@ -108,4 +110,9 @@ p {
     font-size: 20px;
     margin-top: 20px;
     margin-bottom: 20px;
+}
+
+#nameInputBtn {
+    display: flex;
+    align-items: center;
 }

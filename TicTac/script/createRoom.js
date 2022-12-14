@@ -372,9 +372,14 @@ function addNewGame(receivedRoomId) {
       }
     }
   
-    if (addGameSection.children.length > 1) {
+    if (addGameSection.children.length <= 2) {
       addGameSection.removeChild(addGameButton);
       addGameSection.removeChild(joinLobbyButton);
-      // addGameSection.removeChild(enterRoomCodeButton);
+    } else {
+      addGameSection.removeChild(addGameButton);
+      addGameSection.removeChild(joinLobbyButton);
+      addGameSection.removeChild(enterRoomCodeButton);
     }
+
+    console.log(addGameSection.children.length)
   }

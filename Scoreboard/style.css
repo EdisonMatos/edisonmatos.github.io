@@ -42,6 +42,7 @@ header {
 }
 
 footer {
+    margin-top: 20px;
     flex-shrink: 0;
 }
 

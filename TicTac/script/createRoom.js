@@ -266,9 +266,9 @@ function addNewGame(receivedRoomId) {
       } else {
         draw = true;
       }
-      turn = playerX;
-      playerTurnLine.innerText = turn;
-      isEmitter ? socket.emit("newTurn", { roomId }) : null;
+      // turn = playerX;
+      // playerTurnLine.innerText = turn;
+      // isEmitter ? socket.emit("newTurn", { roomId }) : null;
     }
   
     function resetGame(isEmitter) {

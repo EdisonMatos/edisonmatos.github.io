@@ -44,7 +44,7 @@ h1 {
     margin-top: 20px;
     font-size: 50px;
     /* color: #78b2c1; */
-    color: #23454d;
+    color: #78b2c1;
 }
 
 p {
@@ -74,7 +74,7 @@ h4 {
     height: 100px;
     margin: 10px;
     border: 0px;
-    box-shadow: 2px 2px 5px rgb(204, 204, 204);
+    box-shadow: 2px 2px 5px rgb(75, 91, 111);
 }
 
 .squares {
@@ -86,7 +86,7 @@ h4 {
     height: 100px;
     margin: 10px;
     border: 0px;
-    box-shadow: 2px 2px 5px rgb(204, 204, 204);
+    box-shadow: 2px 2px 5px rgb(75, 91, 111);
 }
 
 .squaresVictory {
@@ -98,7 +98,7 @@ h4 {
     height: 100px;
     margin: 10px;
     border: 0px;
-    box-shadow: 2px 2px 5px rgb(204, 204, 204);    
+    box-shadow: 2px 2px 5px rgb(75, 91, 111);  
 
 }
 
@@ -111,7 +111,7 @@ h4 {
     border-radius: 10px;
     border: 0px;
     font-size: 15px;
-    box-shadow: 2px 2px 5px rgb(204, 204, 204);
+    box-shadow: 2px 2px 5px rgb(75, 91, 111);
 }
 
 #restart {
@@ -123,7 +123,7 @@ h4 {
     border-radius: 10px;
     border: 0px;
     font-size: 15px;
-    box-shadow: 2px 2px 5px rgb(204, 204, 204);
+    box-shadow: 2px 2px 5px rgb(75, 91, 111);
 }
 
 #addGameButton {

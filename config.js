@@ -111,7 +111,7 @@ var config_profile_image_url = "assets/images/person.jpg";
 // "waves" = IMAGE EFFECT WAVES
 // "custom" = IMAGE EFFECT CUSTOM
 
-var config_profile_image_effect = "tech";
+var config_profile_image_effect = "custom";
 
 // CUSTOM HOVER EFFECT IMAGE MAP URL
 var config_profile_image_effect_url = "assets/images/effect_maps/custom.jpg";
@@ -162,7 +162,8 @@ var option_hero_background_color_bg = "#212121";
 var option_hero_background_square_mode = "white";
 
 // BACKGROUND COLOR
-var option_hero_background_square_bg = "#002D0B";
+// var option_hero_background_square_bg = "#002D0B";
+var option_hero_background_square_bg = "#212121";
 
 /** 4.3 BACKGROUND CONFIG [ ASTEROIDS BACKGROUND ]
  *******************************************************************/
@@ -171,7 +172,7 @@ var option_hero_background_square_bg = "#002D0B";
 var option_hero_background_asteroids_bg_color = "#212121";
 
 // CUBE COLOR
-var option_hero_background_asteroids_cube_color = "#727272";
+var option_hero_background_asteroids_cube_color = "#002D0B";
 
 // PARTICLE COLOR
 var option_hero_background_asteroids_particle_color = "#666";

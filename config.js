@@ -151,8 +151,8 @@ var option_hero_background_color_bg = "#212121";
 var option_hero_background_square_mode = "white";
 
 // BACKGROUND COLOR
-// var option_hero_background_square_bg = "#002D0B";
-var option_hero_background_square_bg = "#212121";
+var option_hero_background_square_bg = "#002D0B";
+// var option_hero_background_square_bg = "#212121";
 
 /** 4.3 BACKGROUND CONFIG [ ASTEROIDS BACKGROUND ]
  *******************************************************************/

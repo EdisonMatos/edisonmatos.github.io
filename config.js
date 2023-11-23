@@ -131,7 +131,7 @@ var config_profile_image_effect_intensity = 0.3;
 // "circle" = CIRCLE BACKGORUND
 // "lines" = LINES BACKGORUND
 
-var option_hero_background_mode = "twisted";
+var option_hero_background_mode = "square";
 
 // BACKGROUND MODE MOBILE [ SEE OPTIONS BELOW ]
 
@@ -143,7 +143,7 @@ var option_hero_background_mode = "twisted";
 // "twisted" = TWISTED BACKGORUND
 // "match" = MATCHES BACKGROUND FROM (option_hero_background_mode)
 
-var option_hero_background_mode_mobile = "match";
+var option_hero_background_mode_mobile = "color";
 
 /** 4.1 BACKGROUND CONFIG [ COLOR BACKGROUND ]
  *******************************************************************/
@@ -162,7 +162,7 @@ var option_hero_background_color_bg = "#212121";
 var option_hero_background_square_mode = "white";
 
 // BACKGROUND COLOR
-var option_hero_background_square_bg = "#212121";
+var option_hero_background_square_bg = "#002D0B";
 
 /** 4.3 BACKGROUND CONFIG [ ASTEROIDS BACKGROUND ]
  *******************************************************************/

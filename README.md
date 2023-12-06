@@ -12,13 +12,11 @@ Este repositório contém o código-fonte do perfil pessoal de Edison Matos, des
 - `src/cv/Edison_Matos_-_Desenvolvedor_Backend_NodeJS-2.pdf`: Currículo em PDF.
 - `script/script.js`: Script JavaScript para interatividade na página.
 
-## 🖼️ Preview
-
-![Edison Matos - Dev Backend](insira-o-link-da-imagem)
-
 ## 📋 Sobre Mim
 
 Sou Edison Matos, um programador backend focado no desenvolvimento web. Lido com a parte lógica e estrutural das aplicações, com experiência na criação de APIs usando NodeJS (ExpressJS e NestJS) e bancos de dados como MongoDB e PostgreSQL.
+
+![Edison Matos](https://avatars.githubusercontent.com/u/17342047?s=200)
 
 ## 🛠️ Meus Serviços
 

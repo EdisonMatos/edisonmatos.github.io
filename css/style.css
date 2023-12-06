@@ -132,6 +132,12 @@ button:focus {
   );
 }
 
+hr {
+  margin-top: 0;
+  opacity: .15;
+  border-color: rgba(255, 255, 255, 0) 70%;
+}
+
 header {
   background-color: white;
   border-radius: 0 0 5px 5px;
@@ -283,6 +289,7 @@ main .profile {
   display: flex;
   margin-top: 58px;
 }
+
 .profile-buttons::before {
   content: "";
   position: absolute;
@@ -315,8 +322,23 @@ main .profile {
   color: #2eca7f;
 }
 
-.profile-buttons a:first-child::before,
-.profile-buttons a:first-child::after {
+.profile-buttons a:nth-child(1)::before,
+.profile-buttons a:nth-child(1)::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 1px;
+  height: 100%;
+  background: radial-gradient(
+    ellipse at top,
+    rgba(197, 202, 213, 0.7) 0%,
+    rgba(255, 255, 255, 0) 70%
+  );
+}
+
+.profile-buttons a:nth-child(2)::before,
+.profile-buttons a:nth-child(2)::after {
   content: "";
   position: absolute;
   right: 0;
@@ -581,6 +603,13 @@ main .contact {
   font-size: 13px;
 }
 
+.contact-information {
+  display: flex;
+  flex-wrap: wrap;
+  justify-items: left;
+  justify-content: space-between;
+}
+
 @media only screen and (min-width: 540px) {
   header {
     left: calc(50% - 270px);
@@ -678,4 +707,12 @@ main .contact {
   main .contact {
     margin-bottom: 0;
   }
+}
+
+@media (max-width: 550px) {
+  .contact-information {
+    display: flex;
+    flex-direction: column;
+    justify-content: left; 
+  } 
 }
